@@ -1,6 +1,6 @@
 # 什么是webpack
 webpack，可以分析各个模块的依赖关系，最终打包成我们常见的静态文件，.js 、 .css 、 .jpg 、.png。今天我们先不弄那么复杂，我们就介绍webpack是怎么分析ES6的模块依赖，怎么把ES6的代码转成ES5的。
-![Alt text](https://github.com/cliYao/mini_webpack/raw/Screenshots/1.png)
+![Alt text](https://github.com/cliYao/mini_webpack/raw/master/Screenshots/1.png)
 
 
 
@@ -14,8 +14,8 @@ npm install @babel/cord @babel/traverse @babel/core @babel/preset-env --save-dev
 使用webpack肯定少不了原文件，我们会涉及三个需要打包的js文件（entry.js、message.js、name.js）
 
 > // entry.js
-import message from './message.js';
-console.log(message);
+>import message from './message.js';
+>console.log(message);
 
 > // message.js
 import {name} from './name.js';
@@ -51,11 +51,13 @@ webpack分析依赖是从一个入口文件开始分析的，当我们把一个�
 
 > createAsset("./example/entry.js");
 
-当执行这句代码，createAsset 会返回下面的数据结构，这里包括了模块的id，文件路径，依赖数组（entry.js依赖了message.js，所以会返回依赖的文件名），code（这个就是entry.js ES6转ES5的代码） 通过 createAsset 我们成功拿到了entry.js的依赖，就是 dependencies 数组。
+当执行这句代码，createAsset 会返回下面的数据结构，这里包括了模块的id，文件路径，依赖数组（entry.js依赖了message.js，所以会返回依赖的文件名），code（这个就是entry.js ES6转ES5的代码） 
+![Alt text](https://github.com/cliYao/mini_webpack/raw/master/Screenshots/2.png)
+通过 createAsset 我们成功拿到了entry.js的依赖，就是 dependencies 数组。
 
 ## createGraph返回什么，如何找下一个依赖
 我们通过上面可以拿到entry.js依赖的模块，于是我们就可以接着去遍历dependencies 数组，循环调用createAsset这样就可以得到全部模块相互依赖的信息。想得到全部依赖信息需要调用 createGraph 这个一个函数，它会进行广度遍历，最终返回下面的数据
-
+![Alt text](https://github.com/cliYao/mini_webpack/raw/master/Screenshots/3.png)
 
 
 我们可以看到返回的数据，字段之前都和大家解释了，除了 mapping，mapping这个字段是把当前模块依赖的文件名称 和 模块的id 做一个映射，目的是为了更方便查找模块。
@@ -63,4 +65,5 @@ webpack分析依赖是从一个入口文件开始分析的，当我们把一个�
 ## bundle返回什么 && 最后步骤
 
 我们现在已经能拿到每个模块之前的依赖关系，我们再通过调用bundle函数，我们就能构造出最后的bundle.js，输出如下图
+![Alt text](https://github.com/cliYao/mini_webpack/raw/master/Screenshots/4.png)
 
