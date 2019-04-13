@@ -69,6 +69,7 @@ function bundle(graph) {
            },
            ${JSON.stringify(mod.mapping)},
         ],`;
+        
     });
 
     const result = `
