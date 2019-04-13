@@ -29,12 +29,12 @@ export default `hello ${name}!`;
 export const name = 'world';
 
 > //bundler.js 
-// 读取文件信息，并获得当前js文件的依赖关系
-function createAsset(filename) {//代码略}
-// 从入口开始分析所有依赖项，形成依赖图，采用广度遍历
-function createGraph(entry) {//代码略}
-// 根据生成的依赖关系图，生成浏览器可执行文件
-function bundle(graph) {//代码略}
+> // 读取文件信息，并获得当前js文件的依赖关系
+> function createAsset(filename) {//代码略}
+> // 从入口开始分析所有依赖项，形成依赖图，采用广度遍历
+> function createGraph(entry) {//代码略}
+> // 根据生成的依赖关系图，生成浏览器可执行文件
+> function bundle(graph) {//代码略}
 
 entry.js 就是我们的入口文件，文件的依赖关系是，entry.js依赖message.js，message.js依赖name.js。
 
