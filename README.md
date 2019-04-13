@@ -9,7 +9,7 @@ webpack，可以分析各个模块的依赖关系，最终打包成我们常见�
 
 ## 实现
 
-由于ES6转ES5中需要用到babel，所以要用到一下插件
+由于ES6转ES5中需要用到babel，所以要用到以下npm包
 
 npm install  @babel-traverse @babel-core @babel-preset-env @babylon
 
@@ -41,7 +41,6 @@ entry.js 就是我们的入口文件，文件的依赖关系是，entry.js依赖
 bundler.js 是我们简易版的webpack
 
 目录结构
-
 - example
     - entry.js
     - message.js
@@ -78,4 +77,11 @@ webpack分析依赖是从一个入口文件开始分析的，当我们把一个�
 我们现在已经能拿到每个模块之前的依赖关系，我们再通过调用bundle函数，我们就能构造出最后的bundle.js，输出如下图:
 
 ![Alt text](https://github.com/cliYao/mini_webpack/raw/master/Screenshots/4.png)
+
+## 将最终编译结果在控制台运行
+
+结果如下：
+
+![Alt text](https://github.com/cliYao/mini_webpack/raw/master/Screenshots/5.png)
+
 
