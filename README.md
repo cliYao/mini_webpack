@@ -1,6 +1,6 @@
 # 什么是webpack
 webpack，可以分析各个模块的依赖关系，最终打包成我们常见的静态文件，.js 、 .css 、 .jpg 、.png。今天我们先不弄那么复杂，我们就介绍webpack是怎么分析ES6的模块依赖，怎么把ES6的代码转成ES5的。
-![Alt text](https://github.com/cliYao/mini_webpack/Screenshots/1.png)
+![Alt text](https://github.com/cliYao/mini_webpack/raw/Screenshots/1.png)
 
 
 
