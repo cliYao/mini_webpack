@@ -18,11 +18,11 @@ npm install  @babel-traverse @babel-core @babel-preset-env @babylon
 使用webpack肯定少不了原文件，我们会涉及三个需要打包的js文件（entry.js、message.js、name.js）
 
 > // entry.js
->import message from './message.js';
->console.log(message);
+> import message from './message.js';
+  console.log(message);
 
 > // message.js
-import {name} from './name.js';
+> import {name} from './name.js';
 export default `hello ${name}!`;
 
 > // name.js
