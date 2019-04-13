@@ -61,6 +61,7 @@ function createGraph(entry) {
 
 function bundle(graph) {
     let modules = '';
+    
 
     graph.forEach(mod => {
         modules+=`${mod.id}: [
